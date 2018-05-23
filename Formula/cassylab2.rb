@@ -1,14 +1,16 @@
 class Cassylab2 < Formula
   desc "LD Didactic CASSY Lab 2"
   homepage "https://www.ld-didactic.de/service/softwaredownload/cassy-s.html"
-  url "http://ld-250.local/~kkoop/CASSYLab2-Wine.tar.gz"
+  url "http://ld-250.local/~kkoop/cassylab2.tar.gz"
   version "2.11"
+  sha256 "eadddb560560b72bb8b554bfb6c0014bf55e184835ff50ad4dbc217b264693b1"
   
   depends_on "wine"
   depends_on "winetricks"
   depends_on "cabextract"
   depends_on "wget"
   depends_on :x11
+  depends_on "hidapi"
   
   def install
     system "cd hidapi-lan-bridge && make VERBOSE=1 && make VERBOSE=1 PREFIX=#{prefix} install"

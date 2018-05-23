@@ -10,4 +10,3 @@ and run the CASSY Lab 2 installation:
 ```
 brew install cassylab2
 ```
-License
