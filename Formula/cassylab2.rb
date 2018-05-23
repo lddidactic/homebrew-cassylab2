@@ -3,7 +3,7 @@ class Cassylab2 < Formula
   homepage "https://www.ld-didactic.de/service/softwaredownload/cassy-s.html"
   url "http://ld-250.local/~kkoop/cassylab2.tar.gz"
   version "2.11"
-  sha256 "eadddb560560b72bb8b554bfb6c0014bf55e184835ff50ad4dbc217b264693b1"
+  sha256 "5f86b956b852f1c2ab308c9900f29116aabe956d958edffda93131bcdd5734e8"
   
   depends_on "wine"
   depends_on "winetricks"
@@ -15,7 +15,7 @@ class Cassylab2 < Formula
   def install
     system "cd hidapi-lan-bridge && make VERBOSE=1 && make VERBOSE=1 PREFIX=#{prefix} install"
     system "wget --quiet -O cassylab2.msi http://www.ld-didactic.de/software/cassylab2_de.msi"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2 corefonts tahoma || true"
+    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 corefonts tahoma || true"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2 || true"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wine msiexec /i cassylab2.msi /quiet"
     system "cp cassylab2.sh_ cassylab2.sh"
