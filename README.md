@@ -4,7 +4,7 @@ This is a Homebrew Formula to install LD DIDACTIC CASSY Lab 2, which is a Window
 First you need Homebrew. Follow the instructios on https://brew.sh.  
 Then, add the CASSY Lab tap to homebrew:
 ```
-brew tap kkoop/cassylab2
+brew tap lddidactic/cassylab2
 ```
 and run the CASSY Lab 2 installation:
 ```
