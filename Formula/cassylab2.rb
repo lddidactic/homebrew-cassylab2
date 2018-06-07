@@ -15,8 +15,8 @@ class Cassylab2 < Formula
   def install
     system "cd hidapi-lan-bridge && make VERBOSE=1 && make VERBOSE=1 PREFIX=#{prefix} install"
     system "wget --quiet -O cassylab2.msi http://www.ld-didactic.de/software/cassylab2_de.msi"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 corefonts tahoma || true"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2 || true"
+    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 corefonts tahoma"
+    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wine msiexec /i cassylab2.msi /quiet"
     system "cp cassylab2.sh_ cassylab2.sh"
     inreplace "cassylab2.sh","$$$PREFIX$$$","#{prefix}/wine_cassylab2"
