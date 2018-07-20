@@ -14,9 +14,9 @@ class Cassylab2 < Formula
   depends_on "hidapi"
   
   def install
-    system "cd hidapi-lan-bridge && make VERBOSE=1 && make VERBOSE=1 PREFIX=#{prefix} install"
+    system "cd hidapi-lan-bridge && make && make PREFIX=#{prefix} install"
     system "wget --quiet -O cassylab2.msi http://www.ld-didactic.de/software/cassylab2_de.msi"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wineboot"
+    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wineboot -i"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 corefonts tahoma"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wine msiexec /i cassylab2.msi /quiet"
@@ -28,10 +28,13 @@ class Cassylab2 < Formula
     system "install -d #{prefix}/bin/"
     system "cp cassylab2.sh #{prefix}/bin/"
     system "cp -r mac/cassylab2.app #{prefix}"
-    ohai "------------------------------------------------------------------"
-    ohai "CASSY Lab 2 was installed. To create an application link, execute "
-    ohai "  sudo ln -s #{prefix}/cassylab2.app /Applications"
-    ohai "------------------------------------------------------------------"
   end
-  
+
+  def caveats; <<~EOS
+    ------------------------------------------------------------------
+    CASSY Lab 2 was installed. To create an application link, execute 
+    sudo ln -s #{prefix}/cassylab2.app /Applications
+    ------------------------------------------------------------------
+  EOS
+  end
 end
