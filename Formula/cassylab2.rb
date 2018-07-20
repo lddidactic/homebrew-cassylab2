@@ -1,6 +1,7 @@
 class Cassylab2 < Formula
   desc "LD Didactic CASSY Lab 2"
   homepage "https://www.ld-didactic.de/service/softwaredownload/cassy-s.html"
+  #url http://www.ld-didactic.com/software/cassylab2.tar.gz
   url "https://raw.githubusercontent.com/lddidactic/homebrew-cassylab2/master/Package/cassylab2.tar.gz"
   version "2.11"
   sha256 "a676c3350af182a9bfd6e70b7bcc948b86b004e916533b42b4ea0ce69baf9ce8"
@@ -15,6 +16,7 @@ class Cassylab2 < Formula
   def install
     system "cd hidapi-lan-bridge && make VERBOSE=1 && make VERBOSE=1 PREFIX=#{prefix} install"
     system "wget --quiet -O cassylab2.msi http://www.ld-didactic.de/software/cassylab2_de.msi"
+    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wineboot"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 corefonts tahoma"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2"
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wine msiexec /i cassylab2.msi /quiet"
