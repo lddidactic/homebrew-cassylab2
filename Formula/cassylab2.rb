@@ -12,7 +12,6 @@ class Cassylab2 < Formula
   depends_on "wget"
   depends_on :x11
   depends_on "hidapi"
-  depends_on "fontconfig"
   
   def install
     system "cd hidapi-lan-bridge && make && make PREFIX=#{prefix} install"

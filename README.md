@@ -8,6 +8,18 @@ XQuartz, which can then be installed using Homebrew:
 ```
 brew cask install xquartz
 ```
+Next, we need Wine<sup>[1](#footnote1)</sup>: 
+```
+brew install wine
+```
+and initialize it:
+```
+WINEARCH=win32 winecfg
+```
+If the Wine configuration dialog shows up, Wine was successfully installed. You can then simply close the dialog.
+
+<a name="footnote1">1</a>: This step is only required because wine needs to create files in the userdir on first start. Without this, it could be automatically installed as a dependency of cassylab2.
+
 # Installation
 Add the CASSY Lab tap to homebrew:
 ```
