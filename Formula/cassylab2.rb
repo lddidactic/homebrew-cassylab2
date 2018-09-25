@@ -10,7 +10,7 @@ class Cassylab2 < Formula
   depends_on "winetricks"
   depends_on "cabextract"
   depends_on "wget"
-  depends_on :x11
+  #depends_on :x11
   depends_on "hidapi"
   
   def install
