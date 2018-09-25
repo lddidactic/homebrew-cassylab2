@@ -3,12 +3,15 @@ This is a Homebrew Formula to install LD DIDACTIC CASSY Lab 2, which is a Window
 # Requirements
 Requires MacOS X >= 10.11 (El Capitan), Homebrew and XQuartz.
 # Prerequisites
-First you need Homebrew. Follow the instructions on https://brew.sh, if you don't alread have Homebrew installed. You also need
+First you need Homebrew. Follow the instructions on https://brew.sh, if you don't alread have Homebrew installed. 
+<!---
+You also need
 XQuartz, which can then be installed using Homebrew:
 ```
 brew cask install xquartz
 ```
-Next, we need Wine<sup>[1](#footnote1)</sup>: 
+-->
+Next, we install Wine<sup>[1](#footnote1)</sup>: 
 ```
 brew install wine
 ```
