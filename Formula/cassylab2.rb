@@ -24,7 +24,7 @@ class Cassylab2 < Formula
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wine msiexec /i cassylab2.msi /quiet"
     system "cp cassylab2.sh_ cassylab2.sh"
     inreplace "cassylab2.sh","$$$PREFIX$$$","#{prefix}/wine_cassylab2"
-    inreplace "cassylab2.sh","$$$LANG$$$","de"
+    inreplace "cassylab2.sh","$$$LANG$$$",""
     inreplace "cassylab2.sh","$PREFIX/cassybridge","cassybridge"
     #bin.install "cassylab2.sh"
     system "install -d #{prefix}/bin/"
