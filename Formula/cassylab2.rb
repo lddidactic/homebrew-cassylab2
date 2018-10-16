@@ -4,7 +4,7 @@ class Cassylab2 < Formula
   #url http://www.ld-didactic.com/software/cassylab2.tar.gz
   url "https://raw.githubusercontent.com/lddidactic/homebrew-cassylab2/master/Package/cassylab2.tar.gz"
   version "2.22"
-  sha256 "82ab3bf141a63a8eeb87dd6b772d2f4f9f25470801f2d9f61007a7a67183464c"
+  sha256 "4d9f533fee56ed0f995084cd5628dbb917b52853a84117414e50d5c8d49f2e79"
   
   depends_on "wine"
   depends_on "winetricks"
