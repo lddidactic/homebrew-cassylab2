@@ -1,8 +1,7 @@
 class Cassylab2 < Formula
   desc "LD Didactic CASSY Lab 2"
   homepage "https://www.ld-didactic.de/service/softwaredownload/cassy-s.html"
-  #url http://www.ld-didactic.com/software/cassylab2.tar.gz
-  url "https://raw.githubusercontent.com/lddidactic/homebrew-cassylab2/master/Package/cassylab2.tar.gz"
+  url http://www.ld-didactic.com/software/cassylab2.tar.gz
   version "2.22"
   sha256 "4d9f533fee56ed0f995084cd5628dbb917b52853a84117414e50d5c8d49f2e79"
   
