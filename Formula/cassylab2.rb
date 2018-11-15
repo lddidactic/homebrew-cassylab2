@@ -15,11 +15,17 @@ class Cassylab2 < Formula
   def install
     system "cd hidapi-lan-bridge && make && make PREFIX=#{prefix} install"
     system "wget --quiet -O cassylab2.msi http://www.ld-didactic.de/software/cassylab2_de.msi"
-    system "mkdir -p #{prefix}/wine_cassylab2"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wineboot -i"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 || true"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2"
-    system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks corefonts tahoma"
+    if Dir.exist?("#{opt_prefix}/wine_cassylab2")
+      # Update
+      system "mv #{opt_prefix}/wine_cassylab2 #{prefix}/"
+    else
+      # Neuinstallation
+      system "mkdir -p #{prefix}/wine_cassylab2"
+      system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wineboot -i"
+      system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks dotnet20sp2 || true"
+      system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks -q dotnet20sp2"
+      system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 winetricks corefonts tahoma"
+    end
     system "WINEPREFIX=#{prefix}/wine_cassylab2 WINEARCH=win32 wine msiexec /i cassylab2.msi /quiet"
     system "cp cassylab2.sh_ cassylab2.sh"
     inreplace "cassylab2.sh","$$$PREFIX$$$","#{prefix}/wine_cassylab2"
@@ -29,13 +35,5 @@ class Cassylab2 < Formula
     system "install -d #{prefix}/bin/"
     system "cp cassylab2.sh #{prefix}/bin/"
     system "cp -r mac/cassylab2.app #{prefix}"
-  end
-
-  def caveats; <<~EOS
-    ------------------------------------------------------------------
-    CASSY Lab 2 was installed. To create an application link, execute 
-    sudo ln -s #{prefix}/cassylab2.app /Applications
-    ------------------------------------------------------------------
-  EOS
   end
 end
