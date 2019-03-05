@@ -41,8 +41,8 @@ class Cassylab2 < Formula
         system "mkdir -p \"#{prefix}/wine_cassylab2/drive_c/users/Public/Application Data/\""
         system "cp -r \"#{opt_prefix}/wine_cassylab2/drive_c/users/Public/Application Data/LD\" \"#{prefix}/wine_cassylab2/drive_c/users/Public/Application Data/\""
       elsif Dir.exist?("#{opt_prefix}/wine_cassylab2/drive_c/ProgramData/LD")
-        system "mkdir -p \"#{prefix}/wine_cassylab2/drive_c/ProgramData/LD\""
-        system "cp -r \"#{opt_prefix}/wine_cassylab2/drive_c/ProgramData/LD\" \"#{prefix}/wine_cassylab2/drive_c/ProgramData/LD/\""
+        system "mkdir -p \"#{prefix}/wine_cassylab2/drive_c/ProgramData\""
+        system "cp -r \"#{opt_prefix}/wine_cassylab2/drive_c/ProgramData/LD\" \"#{prefix}/wine_cassylab2/drive_c/ProgramData/\""
       end
     end
     system "cp cassylab2.sh_ cassylab2.sh"
