@@ -2,8 +2,8 @@ class Cassylab2 < Formula
   desc "LD Didactic CASSY Lab 2"
   homepage "https://www.ld-didactic.de/service/softwaredownload/cassy-s.html"
   url "http://www.ld-didactic.com/software/cassylab2.tar.gz"
-  version "2.22"
-  sha256 "ac0001fb999fe3a74bed6412961a5f724aee1b89eefb911119e98a392d552e5e"
+  version "2.23"
+  sha256 "e6dd7caa085fee154689dc2be2c70a53143dd747848c31cc5f65b73145734b8f"
   
   depends_on "wine"
   depends_on "winetricks"
@@ -41,7 +41,7 @@ class Cassylab2 < Formula
         system "mkdir -p \"#{prefix}/wine_cassylab2/drive_c/users/Public/Application Data/\""
         system "cp -r \"#{opt_prefix}/wine_cassylab2/drive_c/users/Public/Application Data/LD\" \"#{prefix}/wine_cassylab2/drive_c/users/Public/Application Data/\""
       elsif Dir.exist?("#{opt_prefix}/wine_cassylab2/drive_c/ProgramData/LD")
-        system "mkdir -p \"#{prefix}/wine_cassylab2/drive_c/ProgramData\""
+        system "mkdir -p \"#{prefix}/wine_cassylab2/drive_c/ProgramData/\""
         system "cp -r \"#{opt_prefix}/wine_cassylab2/drive_c/ProgramData/LD\" \"#{prefix}/wine_cassylab2/drive_c/ProgramData/\""
       end
     end
