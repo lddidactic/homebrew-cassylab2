@@ -3,7 +3,7 @@ class Cassylab2 < Formula
   homepage "https://www.ld-didactic.de/service/softwaredownload/cassy-s.html"
   url "http://www.ld-didactic.com/software/cassylab2.tar.gz"
   version "2.23"
-  sha256 "e6dd7caa085fee154689dc2be2c70a53143dd747848c31cc5f65b73145734b8f"
+  sha256 "d13db20d1bd0e3105ffddfe61e4fc3d08cf0375e509e1e9b8390f9662071d9e1"
   
   depends_on "wine"
   depends_on "winetricks"
